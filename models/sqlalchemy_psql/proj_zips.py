@@ -1,0 +1,45 @@
+from sqlalchemy import Column, Integer, String, Float
+from .base import mdl_base
+
+class proj_zips(mdl_base):
+    __tablename__ = "proj_zips"
+    __table_args__ = {"schema" : "gerente"}
+
+    playerid = Column(Integer, primary_key=True)
+    yr = Column(Integer, primary_key=True)
+    name = Column(String)
+    team = Column(String)
+    G = Column(Integer)
+    WAR = Column(Float(precision=1))
+    ADP = Column(Float(precision=1))
+    PA = Column(Integer)
+    AB = Column(Integer)
+    H = Column(Integer)
+    DB = Column(Integer)
+    TR = Column(Integer)
+    HR = Column(Integer)
+    R = Column(Integer)
+    RBI = Column(Integer)
+    BB = Column(Integer)
+    SO = Column(Integer)
+    HBP = Column(Integer)
+    SB = Column(Integer)
+    CS = Column(Integer)
+    AVG = Column(Float(precision=3))
+    OBP = Column(Float(precision=3))
+    SLG = Column(Float(precision=3))
+    OPS = Column(Float(precision=3))
+    wOBA = Column(Float(precision=3))
+    Fld = Column(Float(precision=1))
+    BsR = Column(Float(precision=1))
+
+    W = Column(Integer)
+    L = Column(Integer)
+    ERA = Column(Float(precision=2))
+    GS = Column(Integer)
+    IP = Column(Float(precision=1))
+    ER = Column(Integer)
+    WHIP = Column(Float(precision=2))
+    K9 = Column(Float(precision=2))
+    BB9 = Column(Float(precision=2))
+    FIP = Column(Float(precision=2))
