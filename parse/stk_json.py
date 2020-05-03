@@ -2,6 +2,7 @@ from json import loads, dumps
 from re import split, match
 from datetime import datetime as dt
 
+
 def json_parse(input_string, croptop=None, parse_url=None):
     ret_dict = loads(input_string)
 
@@ -24,7 +25,8 @@ def json_parse(input_string, croptop=None, parse_url=None):
             #    del(ret_dict['count'])
 
     return ret_dict
-    
+
+
 def rootdown(input_dict, obj):
     if 'count' in input_dict[obj]:
         if input_dict[obj]['count'] == 1:
@@ -42,8 +44,10 @@ def rootdown(input_dict, obj):
     else:
         return ret_dict
 
+
 def to_dt_string(in_dt):
     return in_dt.strftime('%m-%d-%Y')
+
 
 def jsonify(in_data):
     if isinstance(in_data, list):

@@ -2,13 +2,15 @@ import sqlalchemy as sa
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
+
 class datastore:
     def __init__(self, user, passwd, host, port, db):
         self.eng = sa.create_engine("postgresql+psycopg2://%s:%s@%s:%s/%s" %
-          (user, passwd, host, port, db))
+                                    (user, passwd, host, port, db))
         self.eng.connect()
         self.session = sessionmaker(bind=self.eng)()
-	    
+        self.base = declarative_base
+
     def create_tbl(self):
         self.base.metadata.create_all(self.eng)
 
@@ -45,18 +47,18 @@ class datastore:
                   .all()
 
         for i in raw_res:
-        	res_dict = i.__dict__
-        	del(res_dict['_sa_instance_state'])
-        	ret_list.append(res_dict)
+            res_dict = i.__dict__
+            del(res_dict['_sa_instance_state'])
+            ret_list.append(res_dict)
 
         return ret_list
 
     def put(self, model, put_dicts, update=False):
-        if update == False:
-    	    put_mdls = []
-    	    for i in put_dicts:
-    		    put_mdls.append(model(**i))
-    	    self.session.add_all(put_mdls)
+        if not update:
+            put_mdls = []
+            for i in put_dicts:
+                put_mdls.append(model(**i))
+            self.session.add_all(put_mdls)
         else:
             pks = []
             for i in sa.inspect(model).primary_key:

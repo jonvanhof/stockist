@@ -1,0 +1,7 @@
+rauth
+urllib
+unidecode
+beautifulsoup4
+requests
+flask
+flask_cors
