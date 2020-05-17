@@ -58,7 +58,7 @@ stk.stock_requests[0].stock()
 
 ##### Add one or more endpoints
 ````
-stk.add_endpoint("teams", stk.objects[0], ['season'])
+stk.add_endpoint("emp", stk.objects[0])
 ````
 
 ##### Create a Flask App and create endpoint map
