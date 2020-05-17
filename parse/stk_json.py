@@ -13,7 +13,7 @@ def json_parse(input_string, croptop=None, parse_url=None):
         subs = split("[/]", parse_url)
         for i in subs:
             obj = match("(\w+)", i).group(1)
-            #if subs.index(i) != len(subs)-1:
+            # if subs.index(i) != len(subs)-1:
             if obj in ret_dict:
                if len(subs) - 1 == subs.index(i):
                    ret_dict = ret_dict[obj]
@@ -50,9 +50,10 @@ def to_dt_string(in_dt):
 
 
 def jsonify(in_data):
-    if isinstance(in_data, list):
+    if type(in_data) == list:
         for i in in_data:
-            for j, k in i.items():
-                if type(k) is dt:
-                    i[j] = to_dt_string(k)
+            if type(i) == dict:
+                for j, k in i.items():
+                    if type(k) is dt:
+                        i[j] = to_dt_string(k)
     return dumps(in_data)

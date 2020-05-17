@@ -1,7 +1,8 @@
 rauth
-urllib
+urllib3
 unidecode
 beautifulsoup4
 requests
 flask
 flask_cors
+gunicorn

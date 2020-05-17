@@ -1,6 +1,7 @@
-from bs4 import BeautifulSoup as bs
+from bs4 import BeautifulSoup
+
 
 def html_parse(input_string):
-    ret_soup = bs(input_string, 'html.parser')
+    ret_soup = BeautifulSoup(input_string, 'html.parser')
 
     return ret_soup

@@ -3,3 +3,8 @@
 __pycache__
 *.ipynb
 .idea
+bin
+include
+lib*
+pyvenv.cfg
+*.db*
